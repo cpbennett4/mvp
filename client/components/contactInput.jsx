@@ -10,7 +10,15 @@ class ContactInput extends React.Component {
   render() {
     return (
       <div>
-        Hello from contactInput
+        <form>
+          <label>
+            Name:
+            <input type="text" name="name" />
+            Email:
+            <input type="text" name="email" />
+          </label>
+          <input type="submit" name="Submit" />
+        </form>
       </div>
     )
   }

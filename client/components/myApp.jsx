@@ -10,7 +10,6 @@ class MyApp extends React.Component {
   render() {
     return (
       <div>
-        <h1>TEST!</h1>
         <div className="contact">
           <ContactInput />
         </div>
