@@ -1,0 +1,31 @@
+{
+  "name": "mvp",
+  "version": "1.0.0",
+  "description": "Email List",
+  "main": "index.js",
+  "scripts": {
+    "nodemon": "nodemon server/index.js --inspect",
+    "start": "./node_modules/.bin/babel client/. -watch --out-dir dist --presets=es2015,react --ignore=node_modules,dist --source-maps inline | live-server --open=/dist/index.html --port=8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cpbennett4/mvp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cpbennett4/mvp/issues"
+  },
+  "homepage": "https://github.com/cpbennett4/mvp#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "live-server": "^1.2.0",
+    "nodemon": "^1.12.1"
+  },
+  "dependencies": {
+    "react": "^16.1.0",
+    "react-dom": "^16.1.0"
+  }
+}
