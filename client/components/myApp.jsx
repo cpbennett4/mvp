@@ -7,11 +7,16 @@ class MyApp extends React.Component {
     console.log('MyApp mounted');
   }
 
+  handleClick (event) {
+    event.preventDefault();
+    console.log('handleClick test');
+  }
+
   render() {
     return (
       <div>
         <div className="contact">
-          <ContactInput />
+          <ContactInput submit={this.handleClick}/>
         </div>
         <div className="display">
           <InterestDisplay />

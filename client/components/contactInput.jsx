@@ -17,7 +17,7 @@ class ContactInput extends React.Component {
             Email:
             <input type="text" name="email" />
           </label>
-          <input type="submit" name="Submit" />
+          <input onClick={this.props.submit} type="submit" name="Submit" />
         </form>
       </div>
     )
