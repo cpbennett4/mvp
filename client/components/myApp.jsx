@@ -1,6 +1,8 @@
 class MyApp extends React.Component {
   constructor(props) {
     super(props);
+    this.name;
+    this.email;
   }
 
   componentDidMount() {
@@ -9,6 +11,7 @@ class MyApp extends React.Component {
 
   handleClick (event) {
     event.preventDefault();
+
     console.log('handleClick test');
   }
 
