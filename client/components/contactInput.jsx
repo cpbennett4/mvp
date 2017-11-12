@@ -1,10 +1,30 @@
 class ContactInput extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      usersName: '',
+      email: ''
+    }
   }
 
-  componentDidMount() {
-    console.log('ContactInput mounted');
+  sendRequest (event) {
+    event.preventDefault();
+    console.log($('input#usersName').val());
+    console.log($('input#email').val());
+    $.ajax({
+      type: 'POST',
+      url: 'http://localhost:3000/',
+      data: {
+        name: $('input#usersName').val(),
+        email: $('input#email').val()
+      },
+      success: function(error, results) {
+        if(error) {
+          console.log(error);
+        }
+        console.log(results);
+      }
+    });
   }
 
   render() {
@@ -13,11 +33,11 @@ class ContactInput extends React.Component {
         <form>
           <label>
             Name:
-            <input type="text" name="name" />
+            <input type="text" name="usersName" id="usersName" />
             Email:
-            <input type="text" name="email" />
+            <input type="text" name="email" id="email" />
+            <input onClick={this.sendRequest.bind(this)} type="submit" name="submit" />
           </label>
-          <input onClick={this.props.submit} type="submit" name="submit" />
         </form>
       </div>
     )

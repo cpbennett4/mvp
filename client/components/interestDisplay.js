@@ -3,10 +3,6 @@ class InterestDisplay extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    console.log('InterestDisplay mounted');
-  }
-
   render() {
     return (
       <div>

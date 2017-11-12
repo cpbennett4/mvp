@@ -4,8 +4,8 @@
   "description": "Email List",
   "main": "index.js",
   "scripts": {
-    "nodemon": "nodemon server/index.js --inspect",
-    "start": "./node_modules/.bin/babel client/. -watch --out-dir dist --presets=es2015,react --ignore=node_modules,dist --source-maps inline | live-server --open=/dist/index.html --port=8080"
+    "nodemon": "nodemon --inspect server/index.js",
+    "start": "./node_modules/.bin/babel client/. -watch --out-dir dist --presets=es2015,react --ignore=node_modules,dist --source-maps inline"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,8 @@
     "nodemon": "^1.12.1"
   },
   "dependencies": {
+    "express": "^4.16.2",
+    "file-system": "^2.2.2",
     "jquery": "^3.2.1",
     "mongoose": "^4.13.1",
     "react": "^16.1.0",

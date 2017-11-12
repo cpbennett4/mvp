@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/contactList');
+mongoose.connect('mongodb://localhost/contactList', {useMongoClient: true});
 
 var contactSchema = mongoose.Schema({
   name: 'string',
@@ -8,14 +8,14 @@ var contactSchema = mongoose.Schema({
 
 var Client = mongoose.model('Client', contactSchema);
 
-var myself = new Client({name: 'Chucky', email: 'cpbennett4@gmail.com'});
+// var myself = new Client({name: 'Chucky', email: 'cpbennett4@gmail.com'});
 
-myself.save(function(error, myself) {
-  if(error) {
-    console.log(error);
-  }
-  console.log('DATABASE SUCCESS!')
-});
+// myself.save(function(error, myself) {
+//   if(error) {
+//     console.log(error);
+//   }
+//   console.log('DATABASE SUCCESS!')
+// });
 
 module.exports.save = function(object) {
   object = new Client({
