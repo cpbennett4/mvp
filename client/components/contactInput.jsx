@@ -12,11 +12,12 @@ class ContactInput extends React.Component {
     console.log($('input#usersName').val());
     console.log($('input#email').val());
     $.ajax({
-      type: 'POST',
-      url: 'http://localhost:3000/',
-      data: {
-        name: $('input#usersName').val(),
-        email: $('input#email').val()
+      "type": 'POST',
+      "url": 'http://localhost:3000/',
+      "Content-type": "application/json",
+      "data": {
+        "name": $('input#usersName').val(),
+        "email": $('input#email').val()
       },
       success: function(error, results) {
         if(error) {
