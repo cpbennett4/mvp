@@ -7,23 +7,35 @@ class ContactInput extends React.Component {
     }
   }
 
-  sendRequest (event) {
+  sendPostRequest(event) {
     event.preventDefault();
-    console.log($('input#usersName').val());
-    console.log($('input#email').val());
     $.ajax({
       "type": 'POST',
-      "url": 'http://localhost:3000/',
+      "url": 'http://localhost:3000',
       "Content-type": "application/json",
       "data": {
         "name": $('input#usersName').val(),
         "email": $('input#email').val()
       },
-      success: function(error, results) {
-        if(error) {
-          console.log(error);
-        }
-        console.log(results);
+      success: function(data) {
+        console.log('results from contactInput post: ',data);
+      },
+      error: function(error) {
+        console.log('error from contactInput post request: ',error);
+      }
+    });
+  }
+
+  sendGetRequest(event) {
+    event.preventDefault();
+    $.ajax({
+      "type": 'GET',
+      "url": 'http://localhost:3000',
+      success: function(data) {
+        console.log('data from contactInput get: ',data);
+      },
+      error: function(error) {
+        console.log('error from contactInput get request: ',error);
       }
     });
   }
@@ -37,9 +49,10 @@ class ContactInput extends React.Component {
             <input type="text" name="usersName" id="usersName" />
             Email:
             <input type="text" name="email" id="email" />
-            <input onClick={this.sendRequest.bind(this)} type="submit" name="submit" />
+            <input onClick={this.sendPostRequest.bind(this)} type="submit" name="submit" />
           </label>
         </form>
+        <button onClick={this.sendGetRequest.bind(this)} type="button" name="getButton">Show all interested</button>
       </div>
     )
   }

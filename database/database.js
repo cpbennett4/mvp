@@ -9,15 +9,6 @@ var contactSchema = mongoose.Schema({
 
 var Client = mongoose.model('Client', contactSchema);
 
-// var myself = new Client({name: 'Chucky', email: 'cpbennett4@gmail.com'});
-
-// myself.save(function(error, myself) {
-//   if(error) {
-//     console.log(error);
-//   }
-//   console.log('DATABASE SUCCESS!')
-// });
-
 module.exports.save = function(object) {
   object = new Client({
     name: object.name,
