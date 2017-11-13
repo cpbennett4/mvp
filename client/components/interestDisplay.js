@@ -6,7 +6,7 @@ class InterestDisplay extends React.Component {
   render() {
     return (
       <div>
-        Hello from InterestDisplay
+        {this.props.interested}
       </div>
     )
   }
