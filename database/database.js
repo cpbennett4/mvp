@@ -21,3 +21,19 @@ module.exports.save = function(object) {
     }
   });
 }
+
+module.exports.seeUsers = function(request, response, next) {
+  Client.find({}, function(error, docs) {
+    if(error) {
+      response.status(500);
+      response.end(error);
+    } else {
+      for(var i = 0; i < docs.length; i++) {
+        console.log('user: ',docs[i]);
+      }
+      response.end(JSON.stringify(docs));
+    }
+  });
+}
+
+module.exports.mongoose = mongoose;

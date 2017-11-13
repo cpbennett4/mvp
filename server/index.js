@@ -1,4 +1,4 @@
-var save = require('../database/database.js').save;
+var save = require('../database/database.js');
 const express = require('express');
 const app  = express();
 var bodyParser = require('body-parser');
@@ -8,22 +8,12 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/', bodyParser(), (request, response) => {
-  console.log('the other test should work');
-  save(request.body);
-  var headers = {
-    'Content-type': 'text/html'
-  }
-  response.writeHead(201, headers);
-  response.end('User\'s info saved to database!');
+  save.save(request.body);
+  response.send('User\'s info saved to database!');
 });
 
 app.get('/', (request, response) => {
-  console.log('this test will not work');
-  var headers = {
-    'Content-type': 'application/json'
-  }
-  // response.writeHead(201, headers);
-  response.send('hello world');
+  save.seeUsers(request, response);
 });
 
 app.use('', express.static(__dirname + '/../dist'));

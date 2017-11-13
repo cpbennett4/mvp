@@ -26,20 +26,6 @@ class ContactInput extends React.Component {
     });
   }
 
-  sendGetRequest(event) {
-    event.preventDefault();
-    $.ajax({
-      "type": 'GET',
-      "url": 'http://localhost:3000',
-      success: function(data) {
-        console.log('data from contactInput get: ',data);
-      },
-      error: function(error) {
-        console.log('error from contactInput get request: ',error);
-      }
-    });
-  }
-
   render() {
     return (
       <div>
@@ -52,7 +38,7 @@ class ContactInput extends React.Component {
             <input onClick={this.sendPostRequest.bind(this)} type="submit" name="submit" />
           </label>
         </form>
-        <button onClick={this.sendGetRequest.bind(this)} type="button" name="getButton">Show all interested</button>
+        <button onClick={this.props.get.bind(this)} type="button" name="getButton">Show all interested</button>
       </div>
     )
   }
